@@ -2,7 +2,9 @@ image interrogatorio = "Interrogatorio.png"
 image ciudad = "Ciudad.png"
 image compu = "Compu.png"
 image fin = "Fin.png"
-image asesino = "Asesino.png"
+image asesinoA = "AsesinoA.png"
+image asesinoB = "AsesinoB.png"
+image asesinoC = "AsesinoC.png"
 image test1 = "Test1.png"
 image test2 = "Test2.png"
 image fotos = "Fotos.png"
@@ -42,7 +44,7 @@ label start:
      show detective
      with dissolve
      d "Nos gustaria que nos ayudaras con este caso"
-     d "Para tratar de resolver el asecinato de la Srta Victoria"
+     d "Para tratar de resolver el asesinato de la Srta Victoria"
      d "Para comenzar te pondremos al tanto de los echos"
      hide detective
 
@@ -154,11 +156,11 @@ label fotos:
      show detectivePensar
      with dissolve
      d "Vaya esto cambia todo"
-     d "Niko ya hiciste los cambios en los datos del comutador?"
+     d "Niko ya hiciste los cambios en los datos del computador?"
      hide detectivePensar
      scene compu
      n "Si detective ya casi tenemos un resultado"
-     
+     scene asesinoA
    
 return
 
@@ -182,7 +184,7 @@ label no:
     scene compu
     n "Si Detective ya me adelante, dentro de poco tendremos el nombre de nuestro asesino" 
     
-    scene asesino
+    scene asesinoA
 
     python:
         from pyswip import Prolog
