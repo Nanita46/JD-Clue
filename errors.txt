@@ -2,6 +2,12 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 5: indentation mismatch.
+File "game/script.rpy", line 114: end of line expected.
+    jump label si
+               ^
+
+File "game/script.rpy", line 118: end of line expected.
+    jump label no
+               ^
 
 Ren'Py Version: Ren'Py 6.17.6.512
