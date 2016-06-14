@@ -2,12 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 114: end of line expected.
-    jump label si
-               ^
-
-File "game/script.rpy", line 118: end of line expected.
-    jump label no
-               ^
+File "game/script.rpy", line 220: expected statement.
+    Show detective 
+                   ^
 
 Ren'Py Version: Ren'Py 6.17.6.512
