@@ -1,4 +1,4 @@
-Wed Jun 22 13:40:13 2016
+Thu Jun 23 20:26:55 2016
 Linux-4.2.0-35-generic-x86_64-with-Ubuntu-15.10-wily
 Ren'Py 6.17.6.512
 JD-Clue 0.0
@@ -250,14 +250,8 @@ FBO Maximum Texture Size: 8192
 Performance test:
 - Target is 5 frames in 0.333333333333 seconds.
 - Frame drawn at 0.000000 seconds.
-- Frame drawn at 0.006299 seconds.
-- Frame drawn at 0.014001 seconds.
-- Frame drawn at 0.016868 seconds.
-- Frame drawn at 0.032808 seconds.
-- 0.032808 seconds to render 5 frames.
-Traceback (most recent call last):
-  File "/usr/share/games/renpy/renpy/error.py", line 213, in report_exception
-    os.makedirs(tbdir)
-  File "/usr/lib/python2.7/os.py", line 157, in makedirs
-    mkdir(name, mode)
-OSError: [Errno 17] File exists: '/home/denis/.renpy/'
+- Frame drawn at 0.008290 seconds.
+- Frame drawn at 0.025811 seconds.
+- Frame drawn at 0.037870 seconds.
+- Frame drawn at 0.054515 seconds.
+- 0.054515 seconds to render 5 frames.

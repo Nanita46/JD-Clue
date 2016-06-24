@@ -145,7 +145,7 @@ label si:
      menu:
           "Fotos.":
                python:
-                    code.append('murderer(Carl).')
+                    code.append('murderer(carl).')
                     write_code = list(set(code))
                     for x in write_code:
                          new_code.write(x)
@@ -154,7 +154,7 @@ label si:
 
           "Testimonio.":
                python:
-                    code.append('murderer(Burt).')
+                    code.append('murderer(burt).')
                     write_code = list(set(code))
                     for x in write_code:
                          new_code.write(x)
@@ -163,7 +163,7 @@ label si:
                
           "Evidencia de Campo.":
                python:
-                    code.append('murderer(Art).')
+                    code.append('murderer(art).')
                     write_code = list(set(code))
                     for x in write_code:
                          new_code.write(x)
