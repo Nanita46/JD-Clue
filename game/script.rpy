@@ -22,15 +22,18 @@ image art2 = "Art2.png"
 
 image burt = "Burt.png"
 image burt1 = "Burt1.png"
-image burt3 = "Burt3.png"
+image burt2 = "Burt2.png"
 
 image carl = "Carl.png"
 image carl1 = "Carl1.png"
+image carl2 = "Carl2.png"
 
 image marta = "Marta.png"
 
 image prueba1 = "Prueba1.png"
 image prueba2 = "Prueba2.png"
+image prueba3 = "Prueba3.png"
+image prueba4 = "Prueba4.png"
 
 image detectivePensar = "DetectivePensar.png"
 
@@ -131,6 +134,9 @@ label start:
                jump no
 
 label si:
+     python:
+          new_code = open('/home/denis/Documentos/murder.pl','w')
+          code=[]
      show detective 
      with dissolve
      d "Y de que se tratan estas pruevas exactamente?"
@@ -138,27 +144,42 @@ label si:
      
      menu:
           "Fotos.":
-               
+               python:
+                    code.append('murderer(carl).')
+                    write_code = list(set(code))
+                    for x in write_code:
+                         new_code.write(x)
+                    new_code.close()               
                jump fotos
 
           "Testimonio.":
-
+               python:
+                    code.append('murderer(burt).')
+                    write_code = list(set(code))
+                    for x in write_code:
+                         new_code.write(x)
+                    new_code.close()  
                jump testimonio
                
           "Evidencia de Campo.":
- 
+               python:
+                    code.append('murderer(art).')
+                    write_code = list(set(code))
+                    for x in write_code:
+                         new_code.write(x)
+                    new_code.close()  
                jump evidencia
 
 label fotos:
+
      show fotos
      with dissolve
-     u "Tengo estas fotos que incriminan a Art"
+     u "Tengo estas fotos que incriminan a Carl"
      hide fotos
      show fotos2
      with dissolve
      u "Ademas estas que lo muestran saliendo del pueblo con la victima"
      hide fotos2
-
      scene interrogatorio
      show detectivePensar
      with dissolve
@@ -167,24 +188,23 @@ label fotos:
      hide detectivePensar
      scene compu
      n "Si detective ya casi tenemos un resultado"
-     scene asesinoA
+     scene asesinoC
      python:
         from pyswip import Prolog
         prolog = Prolog()
-        prolog.consult('/home/denis/Documentos/asesino.pl')
-        asesinos = list(prolog.query('murderer(X)'))
-        for asesino in asesinos:
-          n("El asesino es %s " % str(asesino['X']))
+        prolog.consult('/home/denis/Documentos/murder.pl')
+        asesino = list(prolog.query('murderer(X)'))
+        n("El asesino es %s " %asesino[0]['X'])
 
      scene interrogatorio
      show detectiveAja at right
-     d "Detengan al Sr Art"
+     d "Detengan al Sr Carl"
      hide detectiveAja
 
-     show art2
+     show carl2
      with dissolve
      a ".....rayos!"
-     hide art2
+     hide carl2
 
      show detective
      with dissolve
@@ -226,13 +246,14 @@ label testimonio:
      with dissolve
      m "Yo estaba ahi cuando ocurrio todo"
      m "Se quien es el asesino"
+     hide marta
      show prueba1
      m "Fue aqui en la ciudad yo estaba escondida y alcance a ver a un hombre alto con guantes cuando asesino a Victoria"
      hide prueba1     
      show  prueba2
      m "Vi cuando le clavo el cuchillo en la espalda"
-     hide pruba2
-     m "El asesino es el Señor Carl detective yo lo vi fue el esa noche en el hotel"
+     m "El asesino es el Señor Burt detective yo lo vi fue el esa noche en el hotel"
+     hide prueba2     
      show detectivePensar
      with dissolve
      d "Vaya esto cambia todo"
@@ -240,24 +261,23 @@ label testimonio:
      hide detectivePensar
      scene compu
      n "Si detective ya casi tenemos un resultado"
-     scene asesinoA
+     scene asesinoB
      python:
         from pyswip import Prolog
         prolog = Prolog()
-        prolog.consult('/home/denis/Documentos/asesino.pl')
-        asesinos = list(prolog.query('murderer(X)'))
-        for asesino in asesinos:
-          n("El asesino es %s " % str(asesino['X']))
+        prolog.consult('/home/denis/Documentos/murder.pl')
+        asesino = list(prolog.query('murderer(X)'))
+        n("El asesino es %s " %asesino[0]['X'])
 
      scene interrogatorio
      show detectiveAja at right
-     d "Detengan al Sr Carl"
+     d "Detengan al Sr Burt"
      hide detectiveAja
 
-     show carl2
+     show burt2
      with dissolve
      a "Por poco.....!"
-     hide carl2
+     hide burt2
 
      show detective
      with dissolve
@@ -272,8 +292,54 @@ return
 
 label evidencia:
 
+     scene interrogatorio     
+     u "Tengo en mi poder algo que podria ser importante"
+     show detective
+     with dissolve
+     d "Y que podria ser ese algo al que se refiere"
+     hide detective
 
+     show prueba3 at truecenter
+     with dissolve
+     u "Estos negativos que muestran al Señor Art junto a la victima el dia del asecinato"
+     hide prueba3
 
+     show prueba4 at truecenter
+     with dissolve
+     u "Ademas de este cuchillo que fue ayado cerca del lugar de los echos y puedo apostar a qe las huellas borraran culquier duda" 
+     hide prueba4
+     show detectivePensar
+     with dissolve
+     d "Vaya esto cambia todo"
+     d "Niko ya hiciste los cambios en los datos del computador?"
+     hide detectivePensar
+     scene compu
+     n "Si detective ya casi tenemos un resultado"
+     scene asesinoA
+     python:
+        from pyswip import Prolog
+        prolog = Prolog()
+        prolog.consult('/home/denis/Documentos/murder.pl')
+        asesino = list(prolog.query('murderer(X)'))
+        n("El asesino es %s " %asesino[0]['X'])
+
+     scene interrogatorio
+     show detectiveAja at right
+     d "Detengan al Sr Art"
+     hide detectiveAja
+
+     show art2
+     with dissolve
+     a "Pero como?"
+     hide art2
+
+     show detective
+     with dissolve
+     d "No lo veremos por un buen tiempo"
+     hide detective
+    
+     scene fin
+     "FIN"
 
 return
      
@@ -286,7 +352,7 @@ label no:
     scene compu
     n "Si Detective ya me adelante, dentro de poco tendremos el nombre de nuestro asesino" 
     
-    scene asesinoA
+    scene asesinoB
 
     python:
         from pyswip import Prolog
@@ -301,10 +367,10 @@ label no:
     d "Detengan al Sr Burt"
     hide detectiveAja
 
-    show burt3 at left
+    show burt2 at left
     with dissolve
     b "Como fue que lo resolvieron.....rayos!"
-    hide burt3
+    hide burt2
 
     show detective
     with dissolve

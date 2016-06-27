@@ -1,4 +1,4 @@
-Mon Jun 13 19:36:13 2016
+Thu Jun 23 20:26:55 2016
 Linux-4.2.0-35-generic-x86_64-with-Ubuntu-15.10-wily
 Ren'Py 6.17.6.512
 JD-Clue 0.0
@@ -250,10 +250,8 @@ FBO Maximum Texture Size: 8192
 Performance test:
 - Target is 5 frames in 0.333333333333 seconds.
 - Frame drawn at 0.000000 seconds.
-- Frame drawn at 0.007019 seconds.
-- Frame drawn at 0.015849 seconds.
-- Frame drawn at 0.031439 seconds.
-- Frame drawn at 0.047873 seconds.
-- 0.047873 seconds to render 5 frames.
-The window was minimized.
-The window was restored.
+- Frame drawn at 0.008290 seconds.
+- Frame drawn at 0.025811 seconds.
+- Frame drawn at 0.037870 seconds.
+- Frame drawn at 0.054515 seconds.
+- 0.054515 seconds to render 5 frames.
