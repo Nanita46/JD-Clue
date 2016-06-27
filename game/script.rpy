@@ -379,6 +379,12 @@ label no:
     
     scene fin
     "FIN"
+  
+    menu:
+          "Seguir Jugando":
+               jump start
 
+          "Terminar":
+               return
+        
 
-return
