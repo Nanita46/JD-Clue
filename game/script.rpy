@@ -55,7 +55,7 @@ label start:
      with dissolve
      d "Nos gustaria que nos ayudaras con este caso"
      d "Para tratar de resolver el asesinato de la Srta Victoria"
-     d "Para comenzar te pondremos al tanto de los echos"
+     d "Para comenzar te pondremos al tanto de los hechos"
      hide detective
 
      show detectivePruebas
@@ -87,7 +87,7 @@ label start:
      show test1 at left
      show test2 at right
      with dissolve
-     d "El Señor y la Señora Garcia los cuales aseguran aver visto a los sospechosos y a la victima juntos el dia del assecinato"
+     d "El Señor y la Señora Garcia los cuales aseguran haber visto a los sospechosos y a la victima juntos el dia del asesinato"
      
      scene interrogatorio
      show detective
@@ -114,14 +114,14 @@ label start:
      hide detective
      show carl1
      with dissolve
-     c "Yo soy inocente no se que hago aqui"
+     c "Yo soy inocente, no se que hago aqui"
      c "En lo unico que puedo ayudar es en decirles que vi a Art y a Burt conduciendo por la ciudad ese dia"
      hide carl1
      
      scene interrogatorio
      show detective
      with dissolve
-     d "Me pregunto si tienes alguna prueva con la que puedas ayudarnos"
+     d "Me pregunto si tienes alguna prueba con la que puedas ayudarnos"
      hide detective
 
      menu:
@@ -139,7 +139,7 @@ label si:
           code=[]
      show detective 
      with dissolve
-     d "Y de que se tratan estas pruevas exactamente?"
+     d "Y de que se tratan estas pruebas exactamente?"
      hide detective
      
      menu:
@@ -203,7 +203,7 @@ label fotos:
 
      show carl2
      with dissolve
-     a ".....rayos!"
+     c ".....rayos!"
      hide carl2
 
      show detective
@@ -214,7 +214,12 @@ label fotos:
      scene fin
      "FIN"
 
-return
+     menu:
+          "Seguir Jugando":
+               jump star2
+
+          "Terminar":
+               return
 
 label testimonio:
      
@@ -239,7 +244,7 @@ label testimonio:
 
      show detective 
      with dissolve
-     d "Tranquila Señorita aqui esta asalvo diganos lo que sabe por favor"
+     d "Tranquila Señorita aqui esta a salvo diganos lo que sabe por favor"
      hide detective
 
      show marta 
@@ -248,7 +253,7 @@ label testimonio:
      m "Se quien es el asesino"
      hide marta
      show prueba1
-     m "Fue aqui en la ciudad yo estaba escondida y alcance a ver a un hombre alto con guantes cuando asesino a Victoria"
+     m "Fue aqui en la ciudad, yo estaba escondida y alcance a ver a un hombre alto con guantes cuando asesino a Victoria"
      hide prueba1     
      show  prueba2
      m "Vi cuando le clavo el cuchillo en la espalda"
@@ -276,7 +281,7 @@ label testimonio:
 
      show burt2
      with dissolve
-     a "Por poco.....!"
+     b "Por poco.....!"
      hide burt2
 
      show detective
@@ -287,8 +292,12 @@ label testimonio:
      scene fin
      "FIN"
 
+     menu:
+          "Seguir Jugando":
+               jump star2
 
-return
+          "Terminar":
+               return
 
 label evidencia:
 
@@ -301,7 +310,7 @@ label evidencia:
 
      show prueba3 at truecenter
      with dissolve
-     u "Estos negativos que muestran al Señor Art junto a la victima el dia del asecinato"
+     u "Estos negativos que muestran al Señor Art junto a la victima el dia del asesinato"
      hide prueba3
 
      show prueba4 at truecenter
@@ -340,8 +349,13 @@ label evidencia:
     
      scene fin
      "FIN"
+     menu:
+          "Seguir Jugando":
+               jump star2
 
-return
+          "Terminar":
+               return
+
      
 label no:
     show detectivePensar
@@ -382,9 +396,17 @@ label no:
   
     menu:
           "Seguir Jugando":
-               jump start
+               jump star2
 
           "Terminar":
                return
+label star2:
+     scene interrogatorio
+     show detective
+     with dissolve
+     d "A ti tampoco te convencio cierto, intentemoslo otra vez"
+     d "Aun hay algo extraño en todo esto"
+     d "Tienes algo mas que nos pueda ayudar"
+     jump si
         
 
